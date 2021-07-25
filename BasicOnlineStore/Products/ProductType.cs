@@ -7,7 +7,7 @@ namespace BasicOnlineStore
     public class ProductType
     {
         public string ProductName { get; set; }
-        public string ProdictID { get; set; }
+        public string ProdictID { get; set; } //not used
         public decimal Price { get; set; }
 
         public ProductType(string _name)
