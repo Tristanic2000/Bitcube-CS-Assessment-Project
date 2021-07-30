@@ -1,7 +1,8 @@
 ﻿using System;
+using BasicOnlineStore;
 using BasicOnlineStore.Products;
 
-namespace BasicOnlineStore
+namespace ConsoleAppToTestLib
 {
     class Program
     {
@@ -42,7 +43,8 @@ namespace BasicOnlineStore
                 case '4':
                     InventorySummary();
                     break;
-                case 'X': Environment.Exit(0);
+                case 'X':
+                    Environment.Exit(0);
                     break;
                 default:
                     Menu();
@@ -67,15 +69,20 @@ namespace BasicOnlineStore
             int Amount = 0;
             switch (c)
             {
-                case '1': productType = new Laptop();
+                case '1':
+                    productType = new Laptop();
                     break;
-                case '2': productType = new Phone();
+                case '2':
+                    productType = new Phone();
                     break;
-                case '3': productType = new Tablet();
+                case '3':
+                    productType = new Tablet();
                     break;
-                case 'X': Menu();
+                case 'X':
+                    Menu();
                     break;
-                default: AddProducts();
+                default:
+                    AddProducts();
                     break;
             }
 

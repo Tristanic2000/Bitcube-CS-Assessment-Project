@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace BasicOnlineStore
 {
-    class OnlineStore : IOnlineStore
+    public class OnlineStore : IOnlineStore
     {
         private Inventory inventory { get; set; }
 

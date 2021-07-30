@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BasicOnlineStore.Products
 {
-    class Laptop : ProductType
+    public class Laptop : ProductType
     {
         public Laptop() : base("Laptop")
         {
