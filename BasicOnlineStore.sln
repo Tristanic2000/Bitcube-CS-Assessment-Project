@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicOnlineStore", "BasicOnlineStore\BasicOnlineStore.csproj", "{3A47C047-433C-4F14-BCBF-7C59718F4D95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicStoreFrontEnd", "BasicStoreFrontEnd\BasicStoreFrontEnd.csproj", "{0B647EBF-B14C-4CDB-B050-2E96034B92DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicStoreFrontEnd", "BasicStoreFrontEnd\BasicStoreFrontEnd.csproj", "{0B647EBF-B14C-4CDB-B050-2E96034B92DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

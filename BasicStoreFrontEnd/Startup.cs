@@ -32,14 +32,12 @@ namespace BasicStoreFrontEnd
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-            app.UseStaticFiles();
 
+            app.UseStaticFiles();
+            app.UseSession();
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -47,6 +45,9 @@ namespace BasicStoreFrontEnd
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
         }
     }
