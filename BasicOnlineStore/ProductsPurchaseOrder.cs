@@ -10,20 +10,20 @@ namespace BasicOnlineStore
     {
         [Required(ErrorMessage ="Enter Amount")]
         [DisplayName("Amount Ordering")]
-        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value greater than 0")]
+        [Range(1, int.MaxValue, ErrorMessage = "Value must be at least 1")]
         public int AmountOrdered { get; set; }
 
         public ProductType Product { get; set; }
 
         [Required(ErrorMessage = "Enter Price")]
-        [Range(0, double.MaxValue, ErrorMessage = "Please enter a value greater than 0")]
+        [Range(1, double.MaxValue, ErrorMessage = "Value must be at least 1,00")]
         public decimal Price { get; set; }
 
         public ProductsPurchaseOrder()//ProductType productType, decimal price, int amountOrdered)
         {
-            AmountOrdered = 0;//amountOrdered;
             //Product = productType;
-            Price = 0;//price;
+            AmountOrdered = 0;
+            Price = 0;
         }
     }
 }

@@ -8,8 +8,7 @@ namespace BasicOnlineStore
     public class ProductType
     {
         public string ProductName { get; set; }
-        public string ProductID { get; set; } //not used
-        //[Required(ErrorMessage = "Enter a price")]
+        public string ProductID { get; set; }
         public decimal Price { get; set; }
 
         public ProductType(string _name)
