@@ -1,0 +1,18 @@
+﻿@model InventoryItemSummary
+
+@{
+    ViewData["Title"] = $"Inventory Item Summary";
+}
+
+<h2>Product Summary</h2>
+
+
+<table>
+    <tr>
+        <td>@Model.GetSummary()</td>
+    </tr>
+</table>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back To Home</a>
+</div>

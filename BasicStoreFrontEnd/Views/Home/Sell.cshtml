@@ -1,0 +1,41 @@
+﻿@model ProductsSellOrder
+
+@{
+    ViewData["Title"] = "Sell Products";
+}
+
+<h1>Sell A Product from Inventory and generate Sell Order </h1>
+<h2>Product: @Model.Product.ProductName</h2>
+
+
+@if (ViewData["Message"] != null && ViewData["Message"].ToString() != "")
+{
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span> @*to help assistive technology*@
+        </button>
+        @ViewData["Message"]
+    </div>
+}
+
+<div>
+    <form method="post" asp-controller="Home" asp-action="Sell">
+        <input type="hidden" asp-route-id="@Model.Product.ProductID" />
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="AmountSelling" class="control-label"></label>
+            <input asp-for="AmountSelling" class="form-control" />
+            <span asp-validation-for="AmountSelling" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Sell" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back To Home</a>
+</div>

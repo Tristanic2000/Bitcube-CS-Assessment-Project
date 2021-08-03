@@ -24,9 +24,9 @@ namespace BasicOnlineStore
                 int Count = Products.Count;
                 string name = Products[0].ProductName;
 
-                temp += $"Item Summary for: {name} \n";
-                temp += "======================================\n";
-                temp += $"Total Items: {Count} \n";
+                temp += $"Item Summary for: {name} <br>";
+                temp += "======================================<br>";
+                temp += $"Total Items: {Count} <br>";
 
                 for (int i = 0; i < Count; i++)
                     AveragePrice += Products[i].Price;

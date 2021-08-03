@@ -1,8 +1,33 @@
-﻿@{
+﻿@model IEnumerable<ProductType>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to the Basic Online Store</h1>
 </div>
+
+
+<table class="table table-striped table-sm table-bordered">
+    Products
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+        <th><a class="btn btn-primary" asp-controller="Home" asp-action="InventorySummary">View Inventory Summary</a></th>
+    </tr>
+
+    @foreach (ProductType P in Model)
+    {
+        <tr>
+            <td>@P.ProductID</td>
+            <td>@P.ProductName</td>
+            <td>
+                <a class="btn btn-primary" asp-controller="Home" asp-action="Add" asp-route-id="@P.ProductID">Add</a>
+                <a class="btn btn-secondary" asp-controller="Home" asp-action="Sell" asp-route-id="@P.ProductID">Sell</a>
+                <a class="btn btn-info" asp-controller="Home" asp-action="InventoryItemSummary" asp-route-id="@P.ProductID">View Item</a>
+            </td>
+        </tr>
+    }
+</table>

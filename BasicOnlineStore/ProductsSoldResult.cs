@@ -11,11 +11,14 @@ namespace BasicOnlineStore
         private int AmountSold { get; set; }
         private Inventory inventory { get; set; }
 
+        public bool Success { get; set; }
+
         public ProductsSoldResult(ProductType productType, int amountSold, Inventory inv)
         {
             ProductType = productType;
             AmountSold = amountSold;
             inventory = inv;
+            Success = false;
         }
 
         public string Result()
@@ -45,9 +48,13 @@ namespace BasicOnlineStore
                 while (iCount != AmountSold);
 
                 s += $"{AmountSold} {ProductType.ProductName}(s) sold for: {Total.ToString("C2")}";
+                Success = true;
             }
             else
+            {
+                Success = false;
                 s += $"Unable to sell {AmountSold} {ProductType.ProductName}s due to insufficient stock.";
+            }
 
             return s;
         }

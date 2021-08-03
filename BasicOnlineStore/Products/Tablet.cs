@@ -8,7 +8,7 @@ namespace BasicOnlineStore.Products
     {
         public Tablet() : base("Tablet")
         {
-            ProdictID = "3";
+            ProductID = "3";
         }
     }
     

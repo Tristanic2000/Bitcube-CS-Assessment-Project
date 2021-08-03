@@ -1,0 +1,27 @@
+﻿@model InventorySummary
+
+@{
+    ViewData["Title"] = "Inventory Summary";
+}
+
+<h2>Inventory Summary</h2>
+
+@if (ViewData["Message"] != null && ViewData["Message"].ToString() != "")
+{
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span> @*to help assistive technology*@
+        </button>
+        @ViewData["Message"]
+    </div>
+}
+
+<table>
+    <tr>
+        <td>@Model.GetSummary()</td>
+    </tr>
+</table>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back To Home</a>
+</div>
