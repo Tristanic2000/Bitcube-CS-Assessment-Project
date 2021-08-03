@@ -40,7 +40,7 @@ namespace BasicStoreFrontEnd
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseStaticFiles();
+            app.UseStaticFiles();  //PP
             app.UseSession();
             app.UseRouting();
 

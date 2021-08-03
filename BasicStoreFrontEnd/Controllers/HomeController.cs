@@ -15,10 +15,10 @@ namespace BasicStoreFrontEnd.Controllers
 {
     public class HomeController : Controller
     {
-        private IOnlineStore Store;//OnlineStore Store = new OnlineStore();
+        private IOnlineStore Store;
         private List<ProductType> productTypes;
 
-        public HomeController(IOnlineStore _store)
+        public HomeController(IOnlineStore _store)  //Added as a Singleton service so that the data inside store.inventory will persist between postbacks
         {
             Store = _store;
                 
@@ -38,7 +38,7 @@ namespace BasicStoreFrontEnd.Controllers
         public IActionResult Add(string id)
         {
             ProductType P = productTypes.Where(p => p.ProductID == id).FirstOrDefault();
-            ProductsPurchaseOrder order = new ProductsPurchaseOrder();//P, 0, 0);
+            ProductsPurchaseOrder order = new ProductsPurchaseOrder();
             order.Product = P;
 
             return View(order);
@@ -55,26 +55,13 @@ namespace BasicStoreFrontEnd.Controllers
             {
                 try
                 {
-                    //try
-                    //{
-                    //    if (TempData["Store"] != null)
-                    //        Store = (IOnlineStore)TempData["Store"];
-                    //}
-                    //catch
-                    //{
-
-                    //}
                     Store.AddProductsToInventory(purchaseOrder);
 
-                    //TempData["Store"] = Store;
                     ViewData["Message"] = $"{purchaseOrder.AmountOrdered} {purchaseOrder.Product.ProductName}(s) successfully added to the inventory.";
 
                     return RedirectToAction("InventorySummary");
                 }
-                catch
-                {
-                  //  ModelState.AddModelError("error");
-                }
+                catch {  }
             }
             if (purchaseOrder == null)
             {
@@ -88,7 +75,7 @@ namespace BasicStoreFrontEnd.Controllers
         public IActionResult Sell(string id)
         {
             ProductType P = productTypes.Where(p => p.ProductID == id).FirstOrDefault();
-            ProductsSellOrder order = new ProductsSellOrder();//P, 0);
+            ProductsSellOrder order = new ProductsSellOrder();
             order.Product = P;
 
             return View(order);
@@ -104,20 +91,10 @@ namespace BasicStoreFrontEnd.Controllers
             {
                 try
                 {
-                    //try
-                    //{
-                    //    if (TempData["Store"] != null)
-                    //        Store = (IOnlineStore)TempData["Store"];
-                    //}
-                    //catch
-                    //{
-
-                    //}
                     ProductsSoldResult result = Store.SellProductsFromInventory(sellOrder);
                     string s = result.Result();
 
                     ViewData["Message"] = s;
-                    //TempData["Store"] = Store;
 
                     if (result.Success)
                         return RedirectToAction("InventorySummary");
@@ -125,10 +102,7 @@ namespace BasicStoreFrontEnd.Controllers
 
                     return View(sellOrder);
                 }
-                catch
-                {
-
-                }
+                catch {  }
             }
             return View(sellOrder);
         }
@@ -138,32 +112,12 @@ namespace BasicStoreFrontEnd.Controllers
         {
             ProductType P = productTypes.Where(p => p.ProductID == id).FirstOrDefault();
 
-            //try
-            //{
-            //    if (TempData["Store"] != null)
-            //        Store = (IOnlineStore)TempData["Store"];
-            //}
-            //catch
-            //{
-
-            //}
-
             InventoryItemSummary summary = Store.GetInventoryItemSummary(P);
             return View(summary);
         }
 
         public IActionResult InventorySummary()
         {
-            //try
-            //{
-            //    if (TempData["Store"] != null)
-            //        Store = (IOnlineStore)TempData["Store"];
-            //}
-            //catch
-            //{
-
-            //}
-
             InventorySummary summary = Store.GetInventorySummary();
             return View(summary);
         }

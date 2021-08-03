@@ -9,9 +9,9 @@ namespace BasicOnlineStore
     {
         private Inventory inventory { get; set; }
 
-        public OnlineStore()//Inventory _inv)
+        public OnlineStore()
         {
-            inventory = new Inventory();//_inv;
+            inventory = new Inventory();
         }
 
 
@@ -24,10 +24,7 @@ namespace BasicOnlineStore
                     purchaseOrder.Product.Price = purchaseOrder.Price;
                     inventory.Items.Add(purchaseOrder.Product);
                 }
-               // Console.WriteLine("Product(s) Successfully added.");
             }
-          //  else
-               // Console.WriteLine("ProductsPurchaseOrder is null.");
         }
 
         public InventoryItemSummary GetInventoryItemSummary(ProductType stockType)

@@ -18,7 +18,7 @@ namespace BasicOnlineStore
         public ProductsSellOrder()//ProductType product, int amountSelling)
         {
             // Product = product;
-            AmountSelling = 0;//amountSelling;
+            AmountSelling = 0;
         }
     }
 }
